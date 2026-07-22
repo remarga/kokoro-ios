@@ -11,14 +11,12 @@ let package = Package(
   products: [
     .library(
       name: "KokoroSwift",
-      type: .dynamic,
       targets: ["KokoroSwift"]
     ),
   ],
   dependencies: [
     .package(url: "https://github.com/ml-explore/mlx-swift", exact: "0.30.2"),
-    // .package(url: "https://github.com/mlalma/eSpeakNGSwift", from: "1.0.1"),
-    .package(url: "https://github.com/mlalma/MisakiSwift", exact: "1.0.6"),
+    .package(url: "https://github.com/remarga/MisakiSwift", exact: "1.0.7"),
     .package(url: "https://github.com/mlalma/MLXUtilsLibrary.git", exact: "0.0.6")
   ],
   targets: [
@@ -29,12 +27,11 @@ let package = Package(
         .product(name: "MLXNN", package: "mlx-swift"),
         .product(name: "MLXRandom", package: "mlx-swift"),
         .product(name: "MLXFFT", package: "mlx-swift"),
-        // .product(name: "eSpeakNGLib", package: "eSpeakNGSwift"),
         .product(name: "MisakiSwift", package: "MisakiSwift"),
         .product(name: "MLXUtilsLibrary", package: "MLXUtilsLibrary")
       ],
       resources: [
-       .copy("../../Resources/")
+       .process("../../Resources/")
       ]
     ),
     .testTarget(
